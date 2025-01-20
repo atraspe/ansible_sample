@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Remove nmap package
+    ansible.builtin.dnf:
+      name: nmap
+      state: absent
+      autoremove: yes
+
+  - name: Remove Apache package
+    ansible.builtin.dnf:
+      name: httpd
+      state: absent
+      autoremove: yes
