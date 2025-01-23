@@ -10,6 +10,7 @@
       update_cache: true
     when: ansible_distribution in [ "RedHat", "CentOS" ]
 
+
 - hosts: web_servers
   become: true
   tasks:
@@ -19,6 +20,16 @@
     ansible.builtin.dnf:
       name: httpd
       state: latest
+
+  - name: Copy default html file on remote web server host
+    tags: apache,redhat
+    ansible.builtin.copy:
+      src: index.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: '0644'
+
 
 - hosts: db_servers
   become: true
