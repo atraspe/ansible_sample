@@ -9,5 +9,6 @@
       name: 
         - nmap
         - httpd
+        - mariadb-server
       state: absent
       autoremove: yes

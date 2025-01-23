@@ -1,3 +1,8 @@
-192.168.1.63	nmap_package=nmap apache_package=httpd
-192.168.1.208	nmap_package=nmap apache_package=httpd
-192.168.1.228	nmap_package=nmap apache_package=httpd
+[web_servers]
+192.168.1.63
+
+[db_servers]
+192.168.1.208
+
+[file_servers]
+192.168.1.228

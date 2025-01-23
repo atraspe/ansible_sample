@@ -1,0 +1,32 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: Install updates on RedHat or CentOS servers
+    tags: always
+    ansible.builtin.dnf:
+      update_cache: true
+    when: ansible_distribution in [ "RedHat", "CentOS" ]
+
+- hosts: web_servers
+  become: true
+  tasks:
+
+  - name: Install latest Apache web server
+    tags: apache,redhat
+    ansible.builtin.dnf:
+      name: httpd
+      state: latest
+
+- hosts: db_servers
+  become: true
+  tasks:
+
+  - name: Install latest Maria DB Server
+    tags: db,redhat
+    ansible.builtin.dnf:
+      name: mariadb-server
+      state: latest
+
