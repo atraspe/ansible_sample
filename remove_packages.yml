@@ -4,14 +4,10 @@
   become: true
   tasks:
 
-  - name: Remove nmap package
+  - name: Remove nmap and Apache packages
     ansible.builtin.dnf:
-      name: nmap
-      state: absent
-      autoremove: yes
-
-  - name: Remove Apache package
-    ansible.builtin.dnf:
-      name: httpd
+      name: 
+        - nmap
+        - httpd
       state: absent
       autoremove: yes

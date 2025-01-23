@@ -1,3 +1,3 @@
-192.168.1.63
-192.168.1.208
-192.168.1.228
+192.168.1.63	nmap_package=nmap apache_package=httpd
+192.168.1.208	nmap_package=nmap apache_package=httpd
+192.168.1.228	nmap_package=nmap apache_package=httpd

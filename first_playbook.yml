@@ -4,11 +4,10 @@
   become: true
   tasks:
 
-  - name: Update repository cache
-    ansible.builtin.dnf:
-      update_cache: true
-
-  - name: Install the latest version of Apache
-    ansible.builtin.dnf:
-      name: httpd
+  - name: Install the latest versions of nmap and Apache packages; also update repository cache
+    ansible.builtin.package:
+      name: 
+        - "{{ nmap_package }}"
+        - "{{ apache_package }}"
       state: latest
+      update_cache: true
